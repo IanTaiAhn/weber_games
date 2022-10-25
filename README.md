@@ -16,6 +16,7 @@ First, create a virtual environment and activate it
 
 (install flask)  pip install Flask
 
+
 (For Mac)
 If you have more than one version of python installed on your computer use python3 instead of python.
 1. (If you dont already have pip): python -m pip install --user --upgrade pip
