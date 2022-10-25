@@ -1,21 +1,36 @@
-from flask import Flask
+from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
-# create the extension
-db = SQLAlchemy()
-# create the app
 app = Flask(__name__)
-# configure the SQLite database, relative to the app instance folder
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
-# initialize the app with the extension
-db.init_app(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
-with app.app_context():
-    db.create_all()
+db = SQLAlchemy(app)
 
-@app.route("/users")
-def user_list():
-    print("users data")
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    email = db.Column(db.String(100), unique=True)
+    date_joined = db.Column(db.Date, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f'<User: {self.email}>'
+
+
+print("what")
+
+
+# Showing backend to frontend connectivity.
+# from flask import Flask
+# from flask_cors import CORS
+
+# app = Flask(__name__)
+# CORS(app)
+
+# @app.route("/users")
+# def user_list():
+#     print("users data")
 
 # class User(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
