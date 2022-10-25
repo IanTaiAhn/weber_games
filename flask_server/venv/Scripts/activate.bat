@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\WSU Projects\CS 3750_Software Engineering II\weber_games\flask_server\venv
+set VIRTUAL_ENV=C:\Users\ianta\CS3750_project\CS3750_project\flask_server\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
