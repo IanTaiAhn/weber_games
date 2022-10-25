@@ -33,6 +33,7 @@ pip install -r requirements.txt (mac)
 
 # All set up and ready to run
 (run it) python server.py   (windows)
+
 (run it) python3 server.py  (mac)
 
 # Note about server.py
