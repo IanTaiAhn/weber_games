@@ -9,9 +9,13 @@ npm install
 
 # In the flask_server directory
 First, create a virtual environment and activate it
+
 (create it)  python -m venv venv (windows)
+
 (activate it)  venv/Scripts/activate
+
 (install flask)  pip install Flask
+
 # Install the requirements.txt
 Install the requirements.txt file using the following command:
 
