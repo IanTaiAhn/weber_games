@@ -16,6 +16,14 @@ First, create a virtual environment and activate it
 
 (install flask)  pip install Flask
 
+(For Mac)
+If you have more than one version of python installed on your computer use python3 instead of python.
+1. (If you dont already have pip): python -m pip install --user --upgrade pip
+2. (If you dont already have virtualenv): python -m pip install --user virtualenv
+3. Navigate to the flask_server directory in the terminal
+4. python -m venv venv
+5. source venv/bin/activate
+
 # Install the requirements.txt
 Install the requirements.txt file using the following command:
 
