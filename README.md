@@ -29,7 +29,7 @@ If you have more than one version of python installed on your computer use pytho
 Install the requirements.txt file using the following command:
 
 pip install -r requirements.txt (windows)
-pip3 install -r requirements (mac)
+pip install -r requirements.txt (mac)
 
 # All set up and ready to run
 (run it) python server.py   (windows)
