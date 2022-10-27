@@ -1,9 +1,0 @@
-BEGIN TRANSACTION;
-CREATE TABLE IF NOT EXISTS "User" (
-	"UserID"	INTEGER,
-	"UserName"	TEXT,
-	"UserPass"	TEXT,
-	"UserDisplayName"	TEXT,
-	PRIMARY KEY("UserID")
-);
-COMMIT;

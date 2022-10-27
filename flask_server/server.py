@@ -1,47 +1,8 @@
-from flask import Flask 
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
-
-db = SQLAlchemy(app)
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
-    email = db.Column(db.String(100), unique=True)
-    date_joined = db.Column(db.Date, default=datetime.utcnow)
-
-    def __repr__(self):
-        return f'<User: {self.email}>'
 
 
-print("what")
-
-
-# Showing backend to frontend connectivity.
+# Delete this line, and let the bottom of this be the top.
 # from flask import Flask
 # from flask_cors import CORS
-
-# app = Flask(__name__)
-# CORS(app)
-
-# @app.route("/users")
-# def user_list():
-#     print("users data")
-
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(50))
-#     email = db.Column(db.String(100), unique=True)
-#     date_joined = db.Column(db.Date, default=datetime.utcnow)
-
-#     def __repr__(self):
-#         return f'<User: {self.email}>'
-
-
 
 # app = Flask(__name__)
 # CORS(app)
