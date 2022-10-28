@@ -5,6 +5,8 @@ import os
 # from ..app import *
 # import app
 
+# Next step will to initialize the database in another python file, and then
+# have a bunch of python files only dedicated for sqllite tables.
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Database
