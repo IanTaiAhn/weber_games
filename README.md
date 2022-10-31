@@ -1,5 +1,5 @@
 # CS3750_project
- 
+
 # weber_games
 
 # Frontend
@@ -13,8 +13,6 @@ First, create a virtual environment and activate it
 (create it)  python -m venv venv (windows)
 
 (activate it)  venv/Scripts/activate
-
-(install flask)  pip install Flask
 
 
 (For Mac)
