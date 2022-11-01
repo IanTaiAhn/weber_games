@@ -1,11 +1,15 @@
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from sqlalchemy import select
 import os
 
 # Here I'm going to try to import the Schemas/tables, and see if that is an option to keep code cleaner.
 import tables.UserTable
 from tables.UserTable import app, db
+
+User = tables.UserTable.User
+tablesDb = tables.UserTable
 
 # app = Flask(__name__)
 # basedir = os.path.abspath(os.path.dirname(__file__))
@@ -53,14 +57,19 @@ def create_user():
 
     return tables.UserTable.user_schema.jsonify(add_user)
 
+# var = 3
 # Get a User
 @app.route('/user', methods=['GET'])
 def get_users():
-    all_users = tables.UserTable.User.query.get(1)
+    # all_users = db.session.execute(db.select(User))
+    # all_users = db.get_or_404(User, User.id)
+    # all_users = User.query.get(1)
+    for x in range(4):
+        all_users = User.query.get(x)
     # result = tables.UserTable.users_schema.dump(all_users)
-    # users = db.session.execute(db.select(User).order_by(User.UserName))
-    return tables.UserTable.users_schema.jsonify(all_users)
-    # return jsonify(result)
+    # users = db.session.execute(db.select(User).order_by(User.UserName))   
+    return tables.UserTable.user_schema.jsonify(all_users)
+    # return render_f
     
 # Test API Call
 @app.route('/test')

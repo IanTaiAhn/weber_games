@@ -37,4 +37,4 @@ class UserSchema(ma.Schema):
 
 # Init schema
 user_schema = UserSchema()
-users_schema = UserSchema()
+# users_schema = UserSchema()
