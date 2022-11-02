@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div>
-      {(typeof data.members === 'undefined') ? <p>loading...</p> :
+      {(typeof data.members === 'undefined') ? <p>loading......</p> :
         (data.members.map((member, index) => (
           <h1 key={index}> Name: {member.name} | HighScore: {member.score} | Age: {member.age}</h1>
         )))}
