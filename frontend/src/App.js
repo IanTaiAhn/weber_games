@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 function App() {
   const [data, setData] = useState([{}]) // empty array of dictionaries
 
+  
   useEffect(() => {
     // configure fetch data
     fetch('http://127.0.0.1:5000/api/members')
