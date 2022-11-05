@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
 
+
+
+
 const GuessLetter = () => {
-    const [state, setState] = useState('');
-    let word = 'apples'
-    
-    // If letter is in the word, then it displays.
-    // Next step is to save the letter, 
-    // and have it display into its proper place when correct guess occurs.
+    const [state, setState] = useState([]);
+
     const handler = (event) => {
-      console.log(word.includes(event.key))
-      if (word.includes(event.key)) {
-          setState(event.key);
-      }
-    };
-      
+      setState(event.key);
+  }
+
+  const handleInput = (e) => {
+    let letter = e.target.value;
+    setState(state + letter);
+    console.log(letter);
+
+  }
+
+  // Damn react is actually really cool!
+  const letters = 'abcdefghijklmnopqrstuvwxyz';
+  const listItems = letters.split('').map((letter, i) =>
+  // So we need this unique key prop for some reason
+    <button key={i} value={letter} onClick={handleInput}>
+      {letter}
+    </button>
+    
+    );
     return (
       <div>
         <p>Key pressed is: {state}</p>  
-
-        {/* Both ways work, but idk which one is better? */}
-        {/* <input type="text" onKeyPress={(e) => handler(e)} /> */}
         <input type="text" onKeyPress={handler} />
+        <div>{listItems}</div>
       </div>
     );
   };
