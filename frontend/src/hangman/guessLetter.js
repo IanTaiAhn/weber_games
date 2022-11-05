@@ -34,7 +34,7 @@ const GuessLetter = () => {
   return (
     <div className="container mx-auto">
       <p>Letter is in word: {state}</p>
-      <div>{keyboard}</div>
+      <div className="flex flex-row space-x-2">{keyboard}</div>
     </div>
   );
 };
