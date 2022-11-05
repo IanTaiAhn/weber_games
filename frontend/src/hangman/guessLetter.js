@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 
-
-
-
 const GuessLetter = () => {
-    const [state, setState] = useState([]);
+  const [state, setState] = useState([]);
+  // Will refactor this, and probably pass in values from the main componenet into here as a prop.
 
-    const handler = (event) => {
-      setState(event.key);
-  }
+  // temporary solution
+  let word = 'apples';
+
+  // const handler = (event) => {
+  //     setState(event.key);
+  // }
 
   const handleInput = (e) => {
+    // Do a simple if statement here now and loop through the word.
     let letter = e.target.value;
-    setState(state + letter);
+    if (word.includes(letter))  {
+      setState(state + letter);
+    }
     console.log(letter);
 
   }
@@ -21,7 +25,11 @@ const GuessLetter = () => {
   const letters = 'abcdefghijklmnopqrstuvwxyz';
   const listItems = letters.split('').map((letter, i) =>
   // So we need this unique key prop for some reason
-    <button key={i} value={letter} onClick={handleInput}>
+    <button 
+      key={i} 
+      value={letter} 
+      onClick={handleInput}
+    >
       {letter}
     </button>
     
@@ -29,7 +37,7 @@ const GuessLetter = () => {
     return (
       <div>
         <p>Key pressed is: {state}</p>  
-        <input type="text" onKeyPress={handler} />
+        {/* <input type="text" onKeyPress={handler} /> */}
         <div>{listItems}</div>
       </div>
     );

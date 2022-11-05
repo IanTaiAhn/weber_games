@@ -8,3 +8,10 @@ pip          ==22.2.2
 setuptools   ==63.2.0
 Werkzeug     ==2.2.2
 Flask-Cors   ==3.0.10
+marshmallow-sqlalchemy==0.28.1
+packaging==21.3
+pyparsing==3.0.9
+six==1.16.0
+SQLAlchemy==1.4.42
+touch==2020.12.3
+values==2020.12.3
