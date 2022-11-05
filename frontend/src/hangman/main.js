@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import Header from "./header"
-import Screen from './screen'
-import GuessLetter from './guessLetter'
+// import React, { useState, useEffect } from 'react'
+import Header from "./header";
+import Screen from "./screen";
+import GuessLetter from "./guessLetter";
 
 function Main() {
-
   // Syntax Helpers
   // const [prevState, setState] = useState(0)
   // useEffect(() => {
@@ -16,20 +15,19 @@ function Main() {
   // function decCount() {
   //   setState(prevCount => prevCount + 1)
   // }
-  
 
   return (
     <div>
-      <Header title="HangmanReact"/>
-      <Screen/>
-      <GuessLetter/>
+      <Header title="HangmanReact" />
+      {/* <Screen /> */}
+      <GuessLetter />
 
-        {/* Syntax Helpers */}
-        {/* <button onClick={incCount}>-</button>
+      {/* Syntax Helpers */}
+      {/* <button onClick={incCount}>-</button>
             <span>{prevState}</span>
         <button onClick={decCount}>+</button> */}
     </div>
   );
 }
 
-export default Main
+export default Main;
