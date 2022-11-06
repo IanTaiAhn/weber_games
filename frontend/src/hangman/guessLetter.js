@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CorrectWord from "./correctWord";
 
+// TODO Perhaps implement a wrong word bank.
 const GuessLetter = ({ selectedWord }) => {
   const [letterSet, addLetter] = useState(new Set([]));
   const [correctLetters, showLetters] = useState(
@@ -8,28 +8,13 @@ const GuessLetter = ({ selectedWord }) => {
       .split("")
       .map((letter, i) => <p key={i}>{letterSet.has(letter) ? letter : "_"}</p>)
   );
+  const [mistakeCount, updateCount] = useState(0);
+  const [disable, setDisable] = useState(false);
 
   const handleInput = (e) => {
     let guessedLetter = e.target.value;
     if (selectedWord.includes(guessedLetter)) {
       addLetter(letterSet.add(guessedLetter));
-
-      // correctLetters.map((letter) => (letterSet.has(letter) ? letter : "_"));
-
-      // showLetters((oldArr) => [
-      //   ...oldArr,
-      //   letterSet.has(guessedLetter) ? guessedLetter : "_",
-      // ]);
-
-      // const correctLetters = selectedWord
-      //   .split("")
-      //   .map((letter) => (letterSet.has(letter) ? letter : "_"));
-
-      // showLetters((prevArr) => [
-      //   ...prevArr,
-      //   letterSet.has(guessedLetter) ? guessedLetter : "_",
-      // ]);
-
       showLetters(
         selectedWord
           .split("")
@@ -37,15 +22,11 @@ const GuessLetter = ({ selectedWord }) => {
             <p key={i}>{letterSet.has(letter) ? letter : "_"}</p>
           ))
       );
-
-      // correctLetters = selectedWord
-      //   .split("")
-      //   .map((letter, i) => (
-      //     <p key={i}>{letterSet.has(letter) ? letter : "_"}</p>
-      //   ));
-      // showLetters(selectedWord.includes(guessedLetter));
-      console.log(letterSet);
-      console.log(correctLetters);
+    } else {
+      updateCount((prevCount) => prevCount + 1);
+      if (mistakeCount >= 7) {
+        setDisable(true);
+      }
     }
   };
 
@@ -56,15 +37,23 @@ const GuessLetter = ({ selectedWord }) => {
       key={i}
       value={letter}
       onClick={handleInput}
+      disabled={letterSet.has(letter)}
     >
       {letter}
     </button>
   ));
   return (
     <div className="container mx-auto">
-      {/* <CorrectWord word={selectedWord} handler={letter} /> */}
-      <div>{correctLetters}</div>
-      <div className="flex flex-row space-x-2">{listItems}</div>
+      <h2>Guess the word in under 8 tries!</h2>
+      <div className="flex flex-row gap-x-4 text-3xl">{correctLetters}</div>
+      {disable ? (
+        <p className="text-4xl">You're Done!</p>
+      ) : (
+        <div className="flex flex-row space-x-2">{listItems}</div>
+      )}
+      <div>
+        <p className="text-xl">Mistakes: {mistakeCount}</p>
+      </div>
     </div>
   );
 };

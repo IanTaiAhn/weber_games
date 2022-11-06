@@ -1,6 +1,4 @@
-// import React, { useState, useEffect } from 'react'
 import Header from "./header";
-import Screen from "./screen";
 import GuessLetter from "./guessLetter";
 
 const randomWords = [
@@ -22,7 +20,6 @@ function Main() {
   return (
     <div>
       <Header title="HangmanReact" />
-      {/* <Screen /> */}
       <GuessLetter selectedWord={selectedWord} />
     </div>
   );
