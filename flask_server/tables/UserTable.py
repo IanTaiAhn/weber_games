@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
+from flask_cors import CORS
 # from ..app import *
 # import app
 
@@ -9,6 +10,7 @@ import os
 # Next step will to initialize the database in another python file, and then
 # have a bunch of python files only dedicated for sqllite tables.
 app = Flask(__name__)
+CORS(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
