@@ -39,7 +39,7 @@ pip install -r requirements.txt (mac)
 If you cloned the repo then the code for the test api calls in "server.py" should be there.
 Run the server, and put in "/api/members/" to test if the api calls are working.
 
-# Notice in the pyvenv.cfg
+# Notice in the pyvenv.cfg (deprecated, just create your own venv when cloning any branch)
 We will need to update the "home" variable that paths to where we have python installed.
 I dont know if only changing that variable will work..
 I had to delete the existing venv, and run my own commands to create the venv.
