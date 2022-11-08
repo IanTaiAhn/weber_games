@@ -1,6 +1,5 @@
 import Header from "./Header";
 import Hangman from "./Hangman";
-import { Link } from "react-router-dom";
 
 const randomWords = [
   "apples",
@@ -22,9 +21,6 @@ function Main() {
     <div>
       <Header title="HangmanReact" />
       <Hangman selectedWord={selectedWord} />
-      <Link className="text-4xl text-black" to="/Menu">
-        Menu
-      </Link>
     </div>
   );
 }

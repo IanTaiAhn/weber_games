@@ -52,17 +52,23 @@ const Hangman = ({ selectedWord }) => {
     </button>
   ));
   return (
-    <div className="container mx-auto">
-      <h2>Guess the word in under 8 tries!</h2>
-      <div className="flex flex-row gap-x-4 text-3xl">{correctLetters}</div>
-      {lose ? (
-        <p className="text-4xl">You've Lost!</p>
-      ) : (
-        <div className="flex flex-row space-x-2">{listItems}</div>
-      )}
-      {win ? <p className="text-4xl">You've Won!</p> : ""}
-      <div>
-        <p className="text-xl">Mistakes: {mistakeCount}</p>
+    <div className="container mx-auto border-2 border-indigo-600">
+      <div className="flex flex-column p-10">
+        <h2>Guess the word in under 8 tries!</h2>
+        <div className="flex flex-row gap-x-4 text-3xl self-center p-10">
+          {correctLetters}
+        </div>
+        {lose ? (
+          <p className="text-4xl self-center">You've Lost!</p>
+        ) : (
+          <div
+            className={`flex flex-row space-x-2 self-center p-10 ${keyboard}`}
+          >
+            {listItems}
+          </div>
+        )}
+        {win ? <p className="text-4xl self-center">You've Won!</p> : ""}
+        <p className="text-2xl p-6">Mistakes: {mistakeCount}</p>
       </div>
     </div>
   );
