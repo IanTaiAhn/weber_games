@@ -11,10 +11,13 @@ const HomePage = () => {
 
   return (
     //create a home page
-    <div className="home-page">
+    <div className="home-page flex flex-col space-y-6">
       <h1>HomePage</h1>
       <Link className="text-4xl text-black" to="/Menu">
         Menu
+      </Link>
+      <Link className="text-4xl text-black" to="/Server">
+        Server
       </Link>
     </div>
   );
