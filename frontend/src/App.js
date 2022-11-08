@@ -15,7 +15,6 @@ function App() {
   return (
     <Routes>
       {/* <Route exact path="/" element={<LoginPage />} /> */}
-      {/* Set up a route to my hangman in here, or maybe from Jorge's thang */}
       <Route exact path="/Menu" element={<Menu />} />
       <Route exact path="/LoginPage" element={<LoginPage />} />
       <Route exact path="/HomePage" element={<HomePage />} />
