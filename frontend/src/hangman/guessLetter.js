@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 // TODO Perhaps implement a wrong word bank.
-// TODO Implement win screen!
 const GuessLetter = ({ selectedWord }) => {
   const [letterSet, addLetter] = useState(new Set([]));
   const [correctLetters, showLetters] = useState(
