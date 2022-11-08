@@ -1,0 +1,176 @@
+:root {
+    --nav-bg-color: black;
+    --nav-text-color: white;
+    --button-bg-color: #010101;
+    --button-text-color: rgb(229, 229, 229);
+    --button-hover-bg-color: #ddd;
+    --button-hover-text-color: black;
+    --left-menu-bg-color: var(--nav-bg-color);
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: var(--nav-bg-color);
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+  }
+  
+  /* make ul flex row on larger screens */
+  @media screen and (min-width: 768px) {
+    ul {
+      flex-direction: row;
+    }
+  }
+  
+  li {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: var(--button-bg-color);
+  }
+  
+  /* on hover change background color */
+  li:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color) !important;
+  }
+  
+  /* change the color of all text in li on hover */
+  li:hover a,
+  li:hover button {
+    color: var(--button-hover-text-color) !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--button-text-color);
+    font-size: 1.2rem;
+  }
+  
+  /*  ------------------------- */
+  /* Left Side Stuff */
+  /*  ------------------------- */
+  
+  .left-menu-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--left-menu-bg-color);
+  }
+  
+  /* on smaller screens space between */
+  
+  @media screen and (max-width: 768px) {
+    .left-menu-wrapper {
+      justify-content: space-between;
+    }
+  }
+  
+  li.home-link {
+    margin-right: 3rem;
+  }
+  
+  li.category-button-padding {
+    padding: 0.5rem 0rem;
+  }
+  
+  div.categories-dropdown {
+    position: relative;
+  }
+  
+  div.categories-dropdown > .dropdown-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    left: 0px;
+    background-color: var(--button-text-color);
+    overflow: visible;
+    z-index: 1000;
+  }
+  
+  li.dropdown-item {
+    text-align: left;
+  }
+  
+  button.dropdown-button {
+    min-width: 75px;
+  }
+  
+  /* style button like a link */
+  button.category-button {
+    background: none;
+    border: none;
+    color: var(--button-text-color);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  /* ----------------------- */
+  /* Right Side Stuff */
+  /* ----------------------- */
+  .right-menu-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--nav-bg-color);
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  /* on smaller screens center */
+  
+  @media screen and (max-width: 768px) {
+    .right-menu-wrapper {
+      justify-content: space-between;
+    }
+  }
+  
+  li.user {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    cursor: pointer;
+  }
+  
+  li.user p {
+    color: var(--nav-text-color);
+  }
+  
+  /* profile-link stretches to cover parent container but is not visible */
+  a.profile-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  li.user:hover {
+    background-color: var(--nav-bg-color);
+  }
+  
+  /* rem to pixes */
+  /* 1rem = 16px */
+  
+  li.user .avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  li.user:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in-out;
+  }
+  

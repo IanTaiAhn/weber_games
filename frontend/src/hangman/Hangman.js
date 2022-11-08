@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // TODO Perhaps implement a wrong word bank.
-const GuessLetter = ({ selectedWord }) => {
+const Hangman = ({ selectedWord }) => {
   const [letterSet, addLetter] = useState(new Set([]));
   const [correctLetters, showLetters] = useState(
     selectedWord
@@ -68,4 +68,4 @@ const GuessLetter = ({ selectedWord }) => {
   );
 };
 
-export default GuessLetter;
+export default Hangman;
