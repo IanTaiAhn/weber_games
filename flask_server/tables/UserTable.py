@@ -39,4 +39,7 @@ class UserSchema(ma.Schema):
 
 # Init schema
 user_schema = UserSchema()
-# users_schema = UserSchema()
+users_schema = UserSchema()
+
+with app.app_context():
+    db.create_all()

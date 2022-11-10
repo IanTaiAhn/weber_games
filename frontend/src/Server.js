@@ -10,12 +10,14 @@ function Server() {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        // console.log(data);
+        // console.log(data[0]);
+        // console.log(data[2]);
         // console.log(data.UserDisplayName);
       });
   }, []); // the empty array at the end ensures it runs only once
 
   const dataArr = Object.entries(data);
+  console.log(data);
   // This is almost correct to correctly display queried data.
   // {dataArr.map((el, i) => (
   //   <h1 key={i} className="">
@@ -45,16 +47,34 @@ function Server() {
           Menu
         </Link>
       </div>
+
       <div className="flex flex-col m-4 p-2 space-y-4">
         <p className="text-4xl">
           Returning information from database in the form of json
         </p>
         <div className="">
-          <p className="text-2xl">ID: {data.id}</p>
-          <p className="text-2xl">Username: {data.UserName}</p>
-          <p className="text-2xl">Password: {data.UserPass}</p>
-          <p className="text-2xl">Gamer Tag: {data.UserDisplayName}</p>
+          <p className="text-2xl">ID: {data[0].id}</p>
+          <p className="text-2xl">Username: {data[0].UserName}</p>
+          <p className="text-2xl">Password: {data[0].UserPass}</p>
+          <p className="text-2xl">Gamer Tag: {data[0].UserDisplayName}</p>
         </div>
+        {/* We need this error catching, because servers are slow. */}
+        {typeof data[2] === "undefined" ? (
+          <p>loading......</p>
+        ) : (
+          <div className="">
+            <p className="text-2xl">ID: {data[2].id}</p>
+            <p className="text-2xl">Username: {data[2].UserName}</p>
+            <p className="text-2xl">Password: {data[2].UserPass}</p>
+            <p className="text-2xl">Gamer Tag: {data[2].UserDisplayName}</p>
+          </div>
+        )}
+        {/* <div className="">
+          <p className="text-2xl">ID: {data[2].id}</p>
+          <p className="text-2xl">Username: {data[2].UserName}</p>
+          <p className="text-2xl">Password: {data[2].UserPass}</p>
+          <p className="text-2xl">Gamer Tag: {data[2].UserDisplayName}</p>
+        </div> */}
       </div>
       {/* Another way to display the data that is scalable will be here. (Isn't working rn... ?). */}
     </div>

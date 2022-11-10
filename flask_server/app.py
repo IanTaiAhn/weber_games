@@ -62,24 +62,20 @@ def create_user():
 # Get a User
 @app.route('/user', methods=['GET'])
 def get_users():
-    # STRUGGLES!
-    # all_users = db.session.execute(db.select(User))
-    # all_users = db.get_or_404(User, User.id)
-    all_users = User.query.get(3)
-    # for x in range(4):
-    #     all_users = User.query.get(x)
-    # result = tables.UserTable.users_schema.dump(all_users)
-    # users = db.session.execute(db.select(User).order_by(User.UserName))   
-    return tables.UserTable.user_schema.jsonify(all_users)
-    # return render_f
+    selectedUsers = User.query.get(3)
+    singleResult = tablesDb.user_schema.jsonify(selectedUsers)
+
+    all_users = User.query.all()
+    allResults = tables.UserTable.users_schema.dump(all_users, many=True)
+    return allResults
     
 # Test API Call
 @app.route('/test')
 def test():
     return 'Testing server!'
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
     
 # Run Server
 if __name__ == '__main__':
