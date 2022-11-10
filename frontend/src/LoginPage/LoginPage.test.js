@@ -28,7 +28,7 @@ describe("Ticket # and story name", () => {
   it("should check that the create a new account button works", () => {
     render(<LoginPage />);
     fireEvent.click(screen.getByText("Create a new account"));
-    expect(mockedUsedNavigate).toHaveBeenCalledWith("/HomePage");
+    expect(mockedUsedNavigate).toHaveBeenCalledWith("/SignUpPage");
   });
   //check if the username and password fields exist and can be written in
   it("should check that the username and password fields exist and can be written in", () => {

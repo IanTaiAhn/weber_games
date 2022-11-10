@@ -65,7 +65,7 @@ def get_users():
     # STRUGGLES!
     # all_users = db.session.execute(db.select(User))
     # all_users = db.get_or_404(User, User.id)
-    all_users = User.query.get(4)
+    all_users = User.query.get(3)
     # for x in range(4):
     #     all_users = User.query.get(x)
     # result = tables.UserTable.users_schema.dump(all_users)
