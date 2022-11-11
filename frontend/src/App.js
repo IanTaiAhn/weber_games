@@ -39,6 +39,7 @@ function App() {
         path="/LoginPage"
         element={
           <LoginPage
+            // I need to pass in an array, or list of username and passwords instead here.
             UserName={typeof data === "undefined" ? "" : data[0].UserName}
             Password={typeof data === "undefined" ? "" : data[0].UserPass}
           />
