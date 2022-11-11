@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+// Integrate insertion into database upon receiving the new account credentials.
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(false);
   let signInCheck = () => {

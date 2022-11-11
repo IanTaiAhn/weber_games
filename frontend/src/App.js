@@ -1,4 +1,6 @@
-import React from "react";
+// import React from "react";
+import React, { useState, useEffect } from "react";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,12 +14,36 @@ import Menu from "./Menu/Menu";
 import Main from "./Hangman/Main.js";
 import Server from "./Server.js";
 
+// Set up thang.
+
 function App() {
+  const [data, setData] = useState([{}]); // empty array of dictionaries
+
+  useEffect(() => {
+    // configure fetch data
+    fetch("http://127.0.0.1:5000/user")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        // console.log(data[0]);
+        // console.log(data[2]);
+        // console.log(data.UserDisplayName);
+      });
+  }, []); // the empty array at the end ensures it runs only once
   return (
     <Routes>
       {/* <Route exact path="/" element={<LoginPage />} /> */}
       <Route exact path="/Menu" element={<Menu />} />
-      <Route exact path="/LoginPage" element={<LoginPage />} />
+      <Route
+        exact
+        path="/LoginPage"
+        element={
+          <LoginPage
+            UserName={typeof data === "undefined" ? "" : data[0].UserName}
+            Password={typeof data === "undefined" ? "" : data[0].UserPass}
+          />
+        }
+      />
       <Route exact path="/HomePage" element={<HomePage />} />
       <Route exact path="/SignUpPage" element={<SignUpPage />} />
 

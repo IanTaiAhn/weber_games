@@ -4,16 +4,33 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const LoginPage = () => {
+// TODO Go through the database, and check if username, or password matches database data.
+const LoginPage = ({ UserName, Password }) => {
+  const [user, checkUser] = useState("");
+  const [password, checkPass] = useState("");
+
   let navigate = useNavigate();
 
+  // We need to iterate through the database, but this is for testing purposes now.
+  const handleInputs = () => {
+    checkUser((prevUser, prevPass) => {
+      prevUser = document.getElementById("formBasicUserName").value;
+      prevPass = document.getElementById("formBasicPassword").value;
+      // console.log(prevPass);
+      if (prevUser === UserName && prevPass === Password) {
+        console.log("matches");
+      } else {
+        console.log("incorrect");
+      }
+    });
+  };
   return (
     //create a card with a username and password field
     <div className="login-page">
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicUserName">
           <Form.Label>Username</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="user" placeholder="Enter username" />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -29,9 +46,7 @@ const LoginPage = () => {
             className="submitBtn"
             variant="primary"
             type="submit"
-            onClick={() => {
-              navigate("/HomePage");
-            }}
+            onClick={handleInputs}
           >
             {" "}
             Submit{" "}
