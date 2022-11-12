@@ -18,33 +18,19 @@ import Server from "./Server.js";
 
 function App() {
   const [data, setData] = useState([{}]); // empty array of dictionaries
-
   useEffect(() => {
     // configure fetch data
     fetch("http://127.0.0.1:5000/user")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        // console.log(data[0]);
-        // console.log(data[2]);
-        // console.log(data.UserDisplayName);
       });
   }, []); // the empty array at the end ensures it runs only once
   return (
     <Routes>
       {/* <Route exact path="/" element={<LoginPage />} /> */}
       <Route exact path="/Menu" element={<Menu />} />
-      <Route
-        exact
-        path="/LoginPage"
-        element={
-          <LoginPage
-            // I need to pass in an array, or list of username and passwords instead here.
-            UserName={typeof data === "undefined" ? "" : data[0].UserName}
-            Password={typeof data === "undefined" ? "" : data[0].UserPass}
-          />
-        }
-      />
+      <Route exact path="/LoginPage" element={<LoginPage Users={data} />} />
       <Route exact path="/HomePage" element={<HomePage />} />
       <Route exact path="/SignUpPage" element={<SignUpPage />} />
 

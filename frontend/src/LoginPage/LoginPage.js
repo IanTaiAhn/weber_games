@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 // TODO Go through the database, and check if username, or password matches database data.
-const LoginPage = ({ UserName, Password }) => {
+const LoginPage = ({ Users }) => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [user, checkUser] = useState("");
-  const [password, checkPass] = useState("");
+  // const [userPass, checkPass] = useState("");
 
   let navigate = useNavigate();
 
-  // We need to iterate through the database, but this is for testing purposes now.
   const handleInputs = () => {
-    checkUser((prevUser, prevPass) => {
-      prevUser = document.getElementById("formBasicUserName").value;
-      prevPass = document.getElementById("formBasicPassword").value;
-      // console.log(prevPass);
-      if (prevUser === UserName && prevPass === Password) {
-        console.log("matches");
-        // Take us to home page with games, and we need to make sure our account stays logged in somehow?
-        // We need to have an active state or something that keeps the user logged in.
-        // We will also need to pass a prop from child back to parent, and use that to display their
-        // user name in the HomePage.
-        navigate("/HomePage");
-      } else {
-        // We go back to the loggin page with an error message.
-        console.log("incorrect");
-        setErrorMessage(true);
-      }
+    checkUser((userField, passField) => {
+      userField = document.getElementById("formBasicUserName").value;
+      passField = document.getElementById("formBasicPassword").value;
+
+      Users.map((el) => {
+        if (el.UserName === userField && el.UserPass === passField) {
+          // Correct login
+          navigate("/HomePage");
+        } else {
+          // incorrect login
+          console.log("incorrect");
+          setErrorMessage(true);
+        }
+      });
     });
   };
   return (
