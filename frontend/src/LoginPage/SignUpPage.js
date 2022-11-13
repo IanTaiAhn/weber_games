@@ -4,25 +4,42 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-// Integrate insertion into database upon receiving the new account credentials.
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(false);
+  let navigate = useNavigate();
+
   let signInCheck = () => {
     let username = document.getElementById("formBasicUsername").value;
+    let userDisplayName = document.getElementById(
+      "formBasicUserDisplayName"
+    ).value;
     let password = document.getElementById("formBasicPassword").value;
     let password2 = document.getElementById("formBasicPassword2").value;
-    // if (username === "test" && password === "test") {
-    //     navigate("/HomePage");
-    // }
+
     if (password === password2) {
       setErrorMessage(false);
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          UserName: username,
+          UserPass: password,
+          UserDisplayName: userDisplayName,
+        }),
+      };
+      fetch("http://127.0.0.1:5000/add_user", requestOptions).then(
+        (response) => {
+          if (response.status >= 404) {
+            throw new Error("Server responded with an error");
+          }
+          return response.json();
+        }
+      );
       navigate("/HomePage");
     } else {
       setErrorMessage(true);
     }
   };
-
-  let navigate = useNavigate();
 
   return (
     //create a card with a username and password field
@@ -37,6 +54,14 @@ const LoginPage = () => {
           <Form.Label>Username</Form.Label>
           <Form.Control type="username" placeholder="Enter Username" />
           <Form.Text className="text-muted">Username Must Be Unique</Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicUserDisplayName">
+          <Form.Label>Gamer Tag</Form.Label>
+          <Form.Control type="username" placeholder="Enter Gamer Tag" />
+          <Form.Text className="text-muted">
+            This is how your name will be displayed!
+          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">

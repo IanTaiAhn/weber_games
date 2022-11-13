@@ -14,10 +14,30 @@ function Server() {
         // console.log(data[0]);
         // console.log(data[2]);
         // console.log(data.UserDisplayName);
+      })
+      .catch((err) => {
+        console.log(err.message);
       });
   }, []); // the empty array at the end ensures it runs only once
+
+  // useEffect(() => {
+  //   // POST request using fetch inside useEffect React hook
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       UserName: "Dalton",
+  //       UserPass: "password123",
+  //       UserDisplayName: "DaltonSwag",
+  //     }),
+  //   };
+  //   fetch("http://127.0.0.1:5000/add_user", requestOptions).then((response) =>
+  //     response.json()
+  //   );
+  // }, []);
   return (
     <div className="container mx-auto">
+      {/* Get Users */}
       <div className="space-x-6">
         <Link className="text-3xl text-black" to="/HomePage">
           Home
@@ -38,6 +58,7 @@ function Server() {
           </h1>
         ))
       )}
+      {/* Get Users end */}
       {/* This is the less cool way to display queried data.
       <div className="flex flex-col m-4 p-2 space-y-4">
         <p className="text-4xl">
