@@ -18,6 +18,7 @@ const LoginPage = () => {
 
     if (password === password2) {
       setErrorMessage(false);
+      // We may have to do more error handling bizz.
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -30,6 +31,7 @@ const LoginPage = () => {
       fetch("http://127.0.0.1:5000/add_user", requestOptions).then(
         (response) => {
           if (response.status >= 404) {
+            setErrorMessage(true);
             throw new Error("Server responded with an error");
           }
           return response.json();

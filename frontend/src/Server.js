@@ -10,7 +10,7 @@ function Server() {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        console.log(data[0].UserName);
+        // console.log(data[0].UserName);
         // console.log(data[0]);
         // console.log(data[2]);
         // console.log(data.UserDisplayName);
