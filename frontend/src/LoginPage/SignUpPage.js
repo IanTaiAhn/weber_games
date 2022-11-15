@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+// TODO Don't allow empty strings to create logins!
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(false);
   let navigate = useNavigate();

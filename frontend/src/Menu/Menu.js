@@ -77,9 +77,9 @@ const Menu = ({ username }) => {
                   </button>
                 </li>
               ))}
-              <Link className="" to="/Hangman">
+              {/* <Link className="" to="/Hangman">
                 Hangman
-              </Link>
+              </Link> */}
             </>
           )}
 
