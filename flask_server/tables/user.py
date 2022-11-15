@@ -33,7 +33,26 @@ class UserSchema(ma.Schema):
 user_schema = UserSchema()
 # users_schema = UserSchema()
 
+# User Table End
 
+# Game Class/Model
+class Game(db.Model):
+    Gameid = db.Column(db.Integer, primary_key=True)
+    GameName = db.Column(db.String(50))
+    Genre = db.Column(db.String(50))
+
+def __init__(self, GameName, Genre):
+    self.GameName = GameName
+    self.Genre = Genre
+
+# User Schema
+class GameSchema(ma.Schema):
+    class Meta:
+        fields = ('Gameid', 'GameName', 'Genre')
+
+# Init schema
+game_schema = GameSchema()
+# users_schema = UserSchema()
 
 with app.app_context():
     db.create_all()

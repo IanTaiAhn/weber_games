@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 function Server() {
   const [data, setData] = useState([{}]); // empty array of dictionaries
+  const [games, setGames] = useState([{}]);
 
+  // Gets all users from User table from database
   useEffect(() => {
     // configure fetch data
-    fetch("http://127.0.0.1:5000/user")
+    fetch("http://127.0.0.1:5000/users")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -20,6 +22,20 @@ function Server() {
       });
   }, []); // the empty array at the end ensures it runs only once
 
+  // Gets all Games from Game table from database
+  useEffect(() => {
+    // configure fetch data
+    fetch("http://127.0.0.1:5000/games")
+      .then((response) => response.json())
+      .then((games) => {
+        setGames(games);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []); // the empty array at the end ensures it runs only once
+
+  // Post method to add a user.
   // useEffect(() => {
   //   // POST request using fetch inside useEffect React hook
   //   const requestOptions = {
@@ -59,28 +75,18 @@ function Server() {
         ))
       )}
       {/* Get Users end */}
-      {/* This is the less cool way to display queried data.
-      <div className="flex flex-col m-4 p-2 space-y-4">
-        <p className="text-4xl">
-          Returning information from database in the form of json
-        </p>
-        <div className="">
-          <p className="text-2xl">ID: {data[0].id}</p>
-          <p className="text-2xl">Username: {data[0].UserName}</p>
-          <p className="text-2xl">Password: {data[0].UserPass}</p>
-          <p className="text-2xl">Gamer Tag: {data[0].UserDisplayName}</p>
-        </div>
-        {typeof data[2] === "undefined" ? (
-          <p>loading......</p>
-        ) : (
-          <div className="">
-            <p className="text-2xl">ID: {data[2].id}</p>
-            <p className="text-2xl">Username: {data[2].UserName}</p>
-            <p className="text-2xl">Password: {data[2].UserPass}</p>
-            <p className="text-2xl">Gamer Tag: {data[2].UserDisplayName}</p>
-          </div>
-        )}
-      </div> */}
+      {/* Get Games start */}
+      {typeof data === "undefined" ? (
+        <p>loading......</p>
+      ) : (
+        games.map((el, index) => (
+          <h1 key={index}>
+            {" "}
+            id: {el.Gameid} | GameName: {el.GameName} | Genre: {el.Genre}
+          </h1>
+        ))
+      )}
+      {/* Get Games end */}
     </div>
   );
 }

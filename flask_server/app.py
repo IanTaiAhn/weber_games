@@ -8,9 +8,14 @@ from tables.user import db, app
 import tables.user
 
 # Helpers
+# User Table
 User = tables.user.User
-tablesDb = tables.user
 
+# Game Table
+Game = tables.user.Game
+
+# Entire table file
+tablesDb = tables.user
 
 # API call to create a User
 @app.route('/add_user', methods=['POST'])
@@ -19,23 +24,47 @@ def create_user():
     UserPass = request.json['UserPass']
     UserDisplayName = request.json['UserDisplayName']
 
-    add_user = tables.User.User(UserName=UserName, UserPass=UserPass, UserDisplayName=UserDisplayName)
+    add_user = User(UserName=UserName, UserPass=UserPass, UserDisplayName=UserDisplayName)
     db.session.add(add_user)
     db.session.commit()
 
-    return tables.User.user_schema.jsonify(add_user)
+    return tablesDb.user_schema.jsonify(add_user)
 
 # var = 3
 # Get a User
-@app.route('/user', methods=['GET'])
+@app.route('/users', methods=['GET'])
 def get_users():
     selectedUsers = User.query.get(3)
     singleResult = tablesDb.user_schema.jsonify(selectedUsers)
 
     all_users = User.query.all()
-    allResults = tables.User.user_schema.dump(all_users, many=True)
+    allResults = tablesDb.user_schema.dump(all_users, many=True)
+    return allResults
+
+# Get a Game
+@app.route('/games', methods=['GET'])
+def get_games():
+    selectedUsers = Game.query.get(3)
+    singleResult = tablesDb.game_schema.jsonify(selectedUsers)
+
+    all_users = Game.query.all()
+    allResults = tablesDb.game_schema.dump(all_users, many=True)
     return allResults
     
+
+# API call to create a Game
+@app.route('/add_game', methods=['POST'])
+def create_game():
+    GameName = request.json['GameName']
+    Genre = request.json['Genre']
+
+    add_game = Game(GameName=GameName, Genre=Genre)
+    db.session.add(add_game)
+    db.session.commit()
+
+    return tablesDb.game_schema.jsonify(add_game)
+
+
 # Test API Call
 @app.route('/test')
 def test():
