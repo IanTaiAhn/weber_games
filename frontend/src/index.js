@@ -7,15 +7,13 @@ import Main from "./Hangman/Main";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
+import Navbar from "./Navbar/Navbar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // Uncomment for the backend communciations code.
-  // <React.StrictMode>
-  //   <Server />
-  // </React.StrictMode>
   <React.StrictMode>
     <BrowserRouter>
+      <Navbar />
       <App />
     </BrowserRouter>
   </React.StrictMode>

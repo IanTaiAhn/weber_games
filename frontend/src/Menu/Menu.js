@@ -60,7 +60,8 @@ const Menu = ({ username }) => {
       <ul>
         <div className="left-menu-wrapper">
           <li className="home-link">
-            <Link to="/HomePage">Home</Link>
+            {/* <Link to="/HomePage">Home</Link> */}
+            <p>Lets make this our game directory?</p>
           </li>
           {!categoriesContained && (
             <>
@@ -77,9 +78,6 @@ const Menu = ({ username }) => {
                   </button>
                 </li>
               ))}
-              {/* <Link className="" to="/Hangman">
-                Hangman
-              </Link> */}
             </>
           )}
 

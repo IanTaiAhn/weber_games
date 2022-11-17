@@ -36,6 +36,8 @@ const Hangman = ({ selectedWord }) => {
     if (correctLetterCount === selectedWordLetterCount) {
       setWin(true);
       hideKeyboard("hidden");
+      // For hangman, lets just increment the number of times someone
+      // has guessed a correct word, and how many mistakes they made.
     }
   };
 
@@ -52,7 +54,7 @@ const Hangman = ({ selectedWord }) => {
     </button>
   ));
   return (
-    <div className="container mx-auto border-2 border-indigo-600">
+    <div className="container mx-auto border-2 border-indigo-600 mt-16">
       <div className="flex flex-column p-10">
         <h2>Guess the word in under 8 tries!</h2>
         <div className="flex flex-row gap-x-4 text-3xl self-center p-10">

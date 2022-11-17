@@ -19,7 +19,7 @@ function Main() {
   console.log(selectedWord);
   return (
     <div>
-      <Header title="HangmanReact" />
+      {/* <Header title="HangmanReact" /> */}
       <Hangman selectedWord={selectedWord} />
     </div>
   );

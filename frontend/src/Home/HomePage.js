@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from "react";
-// import "./HomePage.css";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import Navbar from "../Navbar/Navbar";
-
+localStorage.clear();
 const HomePage = () => {
-  let navigate = useNavigate();
-
   return (
     //create a home page
-    <div className="home-page flex flex-col space-y-6">
-      <Navbar />
-      <h1>HomePage</h1>
-      {/* <Link className="text-4xl text-black" to="/Menu">
-        Menu
-      </Link>
-      <Link className="text-4xl text-black" to="/Server">
-        Server
-      </Link> */}
+    <div className="container mx-auto flex flex-col space-y-6 items-center mt-16">
+      <h1 className="text-5xl">Welcome to Weber Games!</h1>
+      {localStorage.length === 0 ? (
+        <p className="text-2xl">
+          <span className="bg-blue-700 rounded p-1">
+            <a
+              href="LoginPage"
+              className="text-yellow-300 cursor-pointer no-underline hover:text-blue-200"
+            >
+              Log in
+            </a>
+          </span>{" "}
+          to your account to track your scores!
+        </p>
+      ) : (
+        <div>
+          {/* <p className="text-2xl"></p> */}
+          <p className="text-2xl">
+            Hello {localStorage.getItem("UserDisplayName")}! Click for the{" "}
+            <span className="bg-blue-700 rounded p-1">
+              <a
+                href="Menu"
+                className="text-yellow-300 cursor-pointer no-underline hover:text-blue-200"
+              >
+                fun
+              </a>
+            </span>
+          </p>
+        </div>
+      )}
     </div>
   );
 };

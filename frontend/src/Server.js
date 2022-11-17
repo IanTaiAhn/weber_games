@@ -55,12 +55,12 @@ function Server() {
     <div className="container mx-auto">
       {/* Get Users */}
       <div className="space-x-6">
-        <Link className="text-3xl text-black" to="/HomePage">
+        {/* <Link className="text-3xl text-black" to="/HomePage">
           Home
         </Link>
         <Link className="text-3xl text-black" to="/Menu">
           Menu
-        </Link>
+        </Link> */}
       </div>
       {typeof data === "undefined" ? (
         <p>loading......</p>

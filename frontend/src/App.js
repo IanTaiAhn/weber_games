@@ -14,8 +14,6 @@ import Menu from "./Menu/Menu";
 import Main from "./Hangman/Main.js";
 import Server from "./Server.js";
 
-// Set up thang.
-
 function App() {
   const [data, setData] = useState([{}]); // empty array of dictionaries
   useEffect(() => {
@@ -31,7 +29,7 @@ function App() {
       {/* <Route exact path="/" element={<LoginPage />} /> */}
       <Route exact path="/Menu" element={<Menu />} />
       <Route exact path="/LoginPage" element={<LoginPage Users={data} />} />
-      <Route exact path="/HomePage" element={<HomePage />} />
+      <Route exact path="/" element={<HomePage />} />
       <Route exact path="/SignUpPage" element={<SignUpPage />} />
 
       <Route exact path="/Hangman" element={<Main />} />

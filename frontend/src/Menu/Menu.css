@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --nav-bg-color: black;
     --nav-text-color: white;
     --button-bg-color: #010101;
@@ -23,9 +23,9 @@
     margin: 0;
     justify-content: space-between;
   }
-  
+   */
   /* make ul flex row on larger screens */
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     ul {
       flex-direction: row;
     }
@@ -36,15 +36,15 @@
     text-align: center;
     background-color: var(--button-bg-color);
   }
-  
+   */
   /* on hover change background color */
-  li:hover {
+  /* li:hover {
     background-color: var(--button-hover-bg-color);
     color: var(--button-hover-text-color) !important;
-  }
+  } */
   
   /* change the color of all text in li on hover */
-  li:hover a,
+  /* li:hover a,
   li:hover button {
     color: var(--button-hover-text-color) !important;
   }
@@ -53,20 +53,20 @@
     text-decoration: none;
     color: var(--button-text-color);
     font-size: 1.2rem;
-  }
+  } */
   
   /*  ------------------------- */
   /* Left Side Stuff */
   /*  ------------------------- */
-  
+/*   
   .left-menu-wrapper {
     display: flex;
     align-items: center;
     background-color: var(--left-menu-bg-color);
   }
-  
+   */
   /* on smaller screens space between */
-  
+/*   
   @media screen and (max-width: 768px) {
     .left-menu-wrapper {
       justify-content: space-between;
@@ -102,21 +102,21 @@
   
   button.dropdown-button {
     min-width: 75px;
-  }
+  } */
   
   /* style button like a link */
-  button.category-button {
+  /* button.category-button {
     background: none;
     border: none;
     color: var(--button-text-color);
     font-size: 1rem;
     cursor: pointer;
-  }
+  } */
   
   /* ----------------------- */
   /* Right Side Stuff */
   /* ----------------------- */
-  .right-menu-wrapper {
+  /* .right-menu-wrapper {
     display: flex;
     align-items: center;
     justify-content: end;
@@ -124,9 +124,9 @@
     overflow: hidden;
     width: 100%;
   }
-  
+   */
   /* on smaller screens center */
-  
+/*   
   @media screen and (max-width: 768px) {
     .right-menu-wrapper {
       justify-content: space-between;
@@ -144,9 +144,9 @@
   li.user p {
     color: var(--nav-text-color);
   }
-  
+   */
   /* profile-link stretches to cover parent container but is not visible */
-  a.profile-link {
+  /* a.profile-link {
     position: absolute;
     top: 0;
     left: 0;
@@ -157,12 +157,12 @@
   
   li.user:hover {
     background-color: var(--nav-bg-color);
-  }
+  } */
   
   /* rem to pixes */
   /* 1rem = 16px */
   
-  li.user .avatar {
+  /* li.user .avatar {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
@@ -173,4 +173,4 @@
     transform: scale(1.2);
     transition: transform 0.2s ease-in-out;
   }
-  
+   */

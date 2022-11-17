@@ -19,8 +19,13 @@ const LoginPage = ({ Users }) => {
 
       Users.map((el) => {
         if (el.UserName === userField && el.UserPass === passField) {
+          // Get the correcct id? so that we can grab the correct gamer tag.
+          // console.log(el.UserDisplayName);
           // Correct login
-          navigate("/HomePage");
+          // We now need to figure out how to pass in info back to the parent,
+          // and then make some kind of boolean active or something.
+          localStorage.setItem("UserDisplayName", el.UserDisplayName);
+          navigate("/");
         } else {
           // incorrect login
           console.log("incorrect");
