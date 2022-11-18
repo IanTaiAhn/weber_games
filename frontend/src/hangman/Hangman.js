@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // TODO Perhaps implement a wrong word bank.
 const Hangman = ({ selectedWord }) => {
@@ -14,6 +14,16 @@ const Hangman = ({ selectedWord }) => {
   const [correctLetterCount, updateCorrectLetterCount] = useState(1);
   const [keyboard, hideKeyboard] = useState("");
   const selectedWordLetterCount = new Set(selectedWord).size;
+
+  useEffect(() => {
+    // Check the win state,
+    if (win) {
+      // We will track how many wins a player has, the word they guessed, and how many tried it took them to get it.
+      console.log(
+        "victory is yours, ask if the player wants to record their score."
+      );
+    }
+  });
 
   const handleInput = (e) => {
     let guessedLetter = e.target.value;

@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="pt-2">
           {/* <!-- <img src="img/logo.svg" alt="" /> Perhaps I'll find a logo, or make one -->  */}
           <a
-            href=""
+            href="/"
             className="font-bold text-3xl text-slate-50 p-2 no-underline cursor-pointer hover:text-slate-300"
           >
             {/* <a href="" className="hover:text-slate-400 group relative"> */}

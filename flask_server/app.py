@@ -14,6 +14,9 @@ User = tables.user.User
 # Game Table
 Game = tables.user.Game
 
+# Temp Hangman Table
+Hangman = tables.user.Hangman
+
 # Entire table file
 tablesDb = tables.user
 
@@ -64,6 +67,29 @@ def create_game():
 
     return tablesDb.game_schema.jsonify(add_game)
 
+
+# Get Hangman stats
+@app.route('/hangman', methods=['GET'])
+def get_hangman():
+    selectedUsers = Hangman.query.get(3)
+    singleResult = tablesDb.hangman_schema.jsonify(selectedUsers)
+
+    all_users = Hangman.query.all()
+    allResults = tablesDb.hangman_schema.dump(all_users, many=True)
+    return allResults
+
+# Post Hangman stats
+@app.route('/add_hangman_stat', methods=['POST'])
+def create_hangman_stat():
+    GuessedWord = request.json['GuessedWord']
+    Tries = request.json['Tries']
+    TotalWins = request.json['TotalWins']
+
+    add_hangman_stat = Hangman(GuessedWord=GuessedWord, Tries=Tries, TotalWins=TotalWins)
+    db.session.add(add_hangman_stat)
+    db.session.commit()
+
+    return tablesDb.hangman_schema.jsonify(add_hangman_stat)
 
 # Test API Call
 @app.route('/test')

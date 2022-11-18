@@ -4,6 +4,10 @@ from flask_marshmallow import Marshmallow
 import os
 from flask_cors import CORS
 
+# I dont like this, but for now this will do.
+# I'm creating all of the tables in here instead of putting them into their own py files. 
+# I've gotta figure out how to do that so that our file structure is nicer!
+
 app = Flask(__name__)
 CORS(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -45,14 +49,33 @@ def __init__(self, GameName, Genre):
     self.GameName = GameName
     self.Genre = Genre
 
-# User Schema
+# Schema
 class GameSchema(ma.Schema):
     class Meta:
         fields = ('Gameid', 'GameName', 'Genre')
 
 # Init schema
 game_schema = GameSchema()
-# users_schema = UserSchema()
+
+# Temp Hangman recordings.
+class Hangman(db.Model):
+    Hangmanid = db.Column(db.Integer, primary_key=True)
+    GuessedWord = db.Column(db.String(50))
+    Tries = db.Column(db.Integer)
+    TotalWins = db.Column(db.Integer)
+
+def __init__(self, GuessedWord, Tries, TotalWins):
+    self.GuessedWord = GuessedWord
+    self.Tries = Tries
+    self.TotalWins = TotalWins
+
+# Schema
+class HangmanSchema(ma.Schema):
+    class Meta:
+        fields = ('Hangmanid', 'GuessedWord', 'Tries', 'TotalWins')
+
+# Init schema
+hangman_schema = HangmanSchema()
 
 with app.app_context():
     db.create_all()

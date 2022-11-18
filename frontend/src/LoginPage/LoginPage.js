@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-// TODO Go through the database, and check if username, or password matches database data.
+// TODO Don't allow a blank login.
 const LoginPage = ({ Users }) => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [user, checkUser] = useState("");
@@ -22,8 +22,6 @@ const LoginPage = ({ Users }) => {
           // Get the correcct id? so that we can grab the correct gamer tag.
           // console.log(el.UserDisplayName);
           // Correct login
-          // We now need to figure out how to pass in info back to the parent,
-          // and then make some kind of boolean active or something.
           localStorage.setItem("UserDisplayName", el.UserDisplayName);
           navigate("/");
         } else {

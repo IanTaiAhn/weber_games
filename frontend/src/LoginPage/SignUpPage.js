@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 // TODO Don't allow empty strings to create logins!
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState(false);
+  const [emptyFields, setEmptyFieldErrMessage] = useState(false);
   let navigate = useNavigate();
 
   let signInCheck = () => {
@@ -17,6 +18,11 @@ const LoginPage = () => {
     let password = document.getElementById("formBasicPassword").value;
     let password2 = document.getElementById("formBasicPassword2").value;
 
+    if (username === "" || password === "") {
+      // No empty strings.
+      setEmptyFieldErrMessage(true);
+      return console.log("empty string");
+    }
     if (password === password2) {
       setErrorMessage(false);
       // We may have to do more error handling bizz.
@@ -38,7 +44,7 @@ const LoginPage = () => {
           return response.json();
         }
       );
-      navigate("/HomePage");
+      navigate("/");
     } else {
       setErrorMessage(true);
     }
@@ -52,6 +58,11 @@ const LoginPage = () => {
           <div></div>
         ) : (
           <div className="error-message">passwords do not match</div>
+        )}
+        {!emptyFields ? (
+          <div></div>
+        ) : (
+          <div className="error-message">Please fill out all text-fields</div>
         )}
         <Form.Group className="mb-3" controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
