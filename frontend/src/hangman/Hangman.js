@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BarLoader from "react-spinners/BarLoader";
 
 // TODO Perhaps implement a wrong word bank.
 const Hangman = ({ selectedWord }) => {
@@ -13,17 +14,11 @@ const Hangman = ({ selectedWord }) => {
   const [lose, setLose] = useState(false);
   const [correctLetterCount, updateCorrectLetterCount] = useState(1);
   const [keyboard, hideKeyboard] = useState("");
-  const selectedWordLetterCount = new Set(selectedWord).size;
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [saveScore, setLoader] = useState("Record Score?");
+  const [hover, disablePointer] = useState("");
 
-  useEffect(() => {
-    // Check the win state,
-    if (win) {
-      // We will track how many wins a player has, the word they guessed, and how many tried it took them to get it.
-      console.log(
-        "victory is yours, ask if the player wants to record their score."
-      );
-    }
-  });
+  const selectedWordLetterCount = new Set(selectedWord).size;
 
   const handleInput = (e) => {
     let guessedLetter = e.target.value;
@@ -46,6 +41,8 @@ const Hangman = ({ selectedWord }) => {
     if (correctLetterCount === selectedWordLetterCount) {
       setWin(true);
       hideKeyboard("hidden");
+      //  Maybe we don't need a useEffect, instead we can just add our button here.
+
       // For hangman, lets just increment the number of times someone
       // has guessed a correct word, and how many mistakes they made.
     }
@@ -54,7 +51,7 @@ const Hangman = ({ selectedWord }) => {
   const letters = "abcdefghijklmnopqrstuvwxyz";
   const listItems = letters.split("").map((letter, i) => (
     <button
-      className={`p-2 bg-indigo-300 hover:bg-slate-700 hover:text-white ${keyboard}`}
+      className={`p-2 transition-all bg-indigo-300 hover:bg-slate-700 hover:text-white hover:scale-110 ${keyboard}`}
       key={i}
       value={letter}
       onClick={handleInput}
@@ -63,6 +60,34 @@ const Hangman = ({ selectedWord }) => {
       {letter}
     </button>
   ));
+
+  function recordScore() {
+    setLoader((prevState) => <BarLoader />);
+    disablePointer((prevState) => "pointer-events-none");
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        // TODO
+        GuessedWord: selectedWord,
+        Tries: mistakeCount,
+        TotalWins: 0,
+      }),
+    };
+    fetch("http://127.0.0.1:5000/add_hangman_stat", requestOptions).then(
+      (response) => {
+        if (response.status >= 404) {
+          setErrorMessage(true);
+          throw new Error("Server responded with an error");
+        }
+        return response.json();
+      }
+    );
+    setTimeout(window.location.reload.bind(window.location), 3000);
+  }
+  function refreshPage() {
+    window.location.reload();
+  }
   return (
     <div className="container mx-auto border-2 border-indigo-600 mt-16">
       <div className="flex flex-column p-10">
@@ -74,13 +99,34 @@ const Hangman = ({ selectedWord }) => {
           <p className="text-4xl self-center">You've Lost!</p>
         ) : (
           <div
-            className={`flex flex-row space-x-2 self-center p-10 ${keyboard}`}
+            className={`flex flex-row space-x-4 self-center p-10 ${keyboard}`}
           >
             {listItems}
           </div>
         )}
         {win ? <p className="text-4xl self-center">You've Won!</p> : ""}
         <p className="text-2xl p-6">Mistakes: {mistakeCount}</p>
+        {win ? (
+          <button
+            onClick={recordScore}
+            // Maybe then we hide the record button, and then
+            className={`p-4 border-2 self-center border-indigo-400 max-w-sm transition-all hover:bg-slate-400 hover:scale-x-110 ${hover}`}
+          >
+            {saveScore}
+          </button>
+        ) : (
+          ""
+        )}
+        {lose ? (
+          <button
+            onClick={refreshPage}
+            className="p-4 border-2 self-center border-indigo-400 max-w-sm transition-all hover:bg-slate-400 hover:scale-x-110"
+          >
+            Play Again?
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
