@@ -45,7 +45,14 @@ const Navbar = () => {
           {localStorage.length === 0 ? (
             <NavbarItem title="Login" href="/LoginPage" />
           ) : (
-            <button onClick={logOut}>LogOut</button>
+            <button
+              className="hover:text-slate-400 group relative no-underline text-slate-50"
+              onClick={logOut}
+            >
+              LogOut{" "}
+              <span className="bg-yellow-300 absolute left-0 -bottom-1 w-0 h-1 transition-all group-hover:w-full"></span>
+            </button>
+            // <NavbarItem title="LogOut" onclick={logOut} />
           )}
 
           {/* <NavbarItem title="HangmanReact" href="/Hangman" />
