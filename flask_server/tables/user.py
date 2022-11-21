@@ -60,11 +60,13 @@ game_schema = GameSchema()
 # Temp Hangman recordings.
 class Hangman(db.Model):
     Hangmanid = db.Column(db.Integer, primary_key=True)
+    UserDisplayName = db.Column(db.String(50))
     GuessedWord = db.Column(db.String(50))
     Tries = db.Column(db.Integer)
     TotalWins = db.Column(db.Integer)
 
-def __init__(self, GuessedWord, Tries, TotalWins):
+def __init__(self, UserDisplayName, GuessedWord, Tries, TotalWins):
+    self.UserDisplayName = UserDisplayName
     self.GuessedWord = GuessedWord
     self.Tries = Tries
     self.TotalWins = TotalWins
@@ -72,7 +74,7 @@ def __init__(self, GuessedWord, Tries, TotalWins):
 # Schema
 class HangmanSchema(ma.Schema):
     class Meta:
-        fields = ('Hangmanid', 'GuessedWord', 'Tries', 'TotalWins')
+        fields = ('Hangmanid', 'UserDisplayName', 'GuessedWord', 'Tries', 'TotalWins')
 
 # Init schema
 hangman_schema = HangmanSchema()

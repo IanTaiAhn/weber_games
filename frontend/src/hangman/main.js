@@ -1,5 +1,5 @@
-import Header from "./header";
-import Hangman from "./hangman";
+// import Header from "./header";
+import Hangman from "./Hangman";
 
 const randomWords = [
   "apples",

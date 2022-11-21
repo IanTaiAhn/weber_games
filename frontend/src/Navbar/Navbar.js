@@ -1,4 +1,5 @@
 import NavbarItem from "./NavbarItem";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   // TODO
@@ -9,6 +10,15 @@ const Navbar = () => {
   //     e.target.nextElementSibling.classList.add("ease-out");
   //   }
   //   );
+  let navigate = useNavigate();
+
+  const logOut = () => {
+    localStorage.clear();
+    navigate("/");
+    window.location.reload();
+
+    console.log("hello");
+  };
   return (
     // <section className="bg-gradient-to-b from-slate-500 to-slate-400">
     <nav className="relative p-2 bg-gradient-to-b from-slate-500 to-slate-400">
@@ -32,7 +42,12 @@ const Navbar = () => {
           {/* <NavbarItem title="Home" href="/" /> */}
           <NavbarItem title="Menu" href="/Menu" />
           <NavbarItem title="Server" href="/Server" />
-          <NavbarItem title="Login" href="/LoginPage" />
+          {localStorage.length === 0 ? (
+            <NavbarItem title="Login" href="/LoginPage" />
+          ) : (
+            <button onClick={logOut}>LogOut</button>
+          )}
+
           {/* <NavbarItem title="HangmanReact" href="/Hangman" />
           <NavbarItem title="Piggies!" href="/piggy_game/piggy.html" /> */}
         </div>

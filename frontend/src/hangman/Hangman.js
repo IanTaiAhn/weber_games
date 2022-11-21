@@ -41,10 +41,6 @@ const Hangman = ({ selectedWord }) => {
     if (correctLetterCount === selectedWordLetterCount) {
       setWin(true);
       hideKeyboard("hidden");
-      //  Maybe we don't need a useEffect, instead we can just add our button here.
-
-      // For hangman, lets just increment the number of times someone
-      // has guessed a correct word, and how many mistakes they made.
     }
   };
 
@@ -61,6 +57,7 @@ const Hangman = ({ selectedWord }) => {
     </button>
   ));
 
+  console.log(localStorage.getItem("UserDisplayName"));
   function recordScore() {
     setLoader((prevState) => <BarLoader />);
     disablePointer((prevState) => "pointer-events-none");
@@ -68,10 +65,14 @@ const Hangman = ({ selectedWord }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        // TODO
+        UserDisplayName:
+          localStorage.length === 0
+            ? "guest"
+            : localStorage.getItem("UserDisplayName"),
         GuessedWord: selectedWord,
         Tries: mistakeCount,
         TotalWins: 0,
+        // TODO, Need to figure out how to query specific fields.
       }),
     };
     fetch("http://127.0.0.1:5000/add_hangman_stat", requestOptions).then(

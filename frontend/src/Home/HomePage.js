@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-localStorage.clear();
 const HomePage = () => {
+  const logOut = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
   return (
     //create a home page
     <div className="container mx-auto flex flex-col space-y-6 items-center mt-16">
@@ -32,6 +35,16 @@ const HomePage = () => {
             </span>
           </p>
         </div>
+      )}
+      {localStorage.length === 0 ? (
+        <div></div>
+      ) : (
+        <button
+          className="text-yellow-300 bg-blue-700 text-2xl rounded p-1 cursor-pointer no-underline hover:text-blue-200"
+          onClick={logOut}
+        >
+          LogOut
+        </button>
       )}
     </div>
   );
