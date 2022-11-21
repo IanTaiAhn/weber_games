@@ -34,7 +34,12 @@ const LoginPage = ({ Users }) => {
   };
   return (
     //create a card with a username and password field
+      <>
+   
     <div className="login-page">
+      
+      <div className="login-form">
+      <h2 className="Header">LogIn Page</h2>
       <Form>
         {!errorMessage ? (
           <div></div>
@@ -77,6 +82,8 @@ const LoginPage = ({ Users }) => {
         </div>
       </Form>
     </div>
+    </div>
+    </>
   );
 };
 

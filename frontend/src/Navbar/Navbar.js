@@ -32,8 +32,9 @@ const Navbar = () => {
           {/* <NavbarItem title="Home" href="/" /> */}
           <NavbarItem title="Menu" href="/Menu" />
           <NavbarItem title="Server" href="/Server" />
-          <NavbarItem title="HangmanReact" href="/Hangman" />
-          <NavbarItem title="Piggies!" href="/piggy_game/piggy.html" />
+          <NavbarItem title="Login" href="/LoginPage" />
+          {/* <NavbarItem title="HangmanReact" href="/Hangman" />
+          <NavbarItem title="Piggies!" href="/piggy_game/piggy.html" /> */}
         </div>
 
         {/* <!-- Hamburger menu (responsive menu) --> */}

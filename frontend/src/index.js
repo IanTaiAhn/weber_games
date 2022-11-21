@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Server from "./Server";
 import reportWebVitals from "./reportWebVitals";
-import Main from "./Hangman/Main";
+import Main from "./hangman/main";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";

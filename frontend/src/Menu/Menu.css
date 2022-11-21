@@ -174,3 +174,23 @@
     transition: transform 0.2s ease-in-out;
   }
    */
+
+   .card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1%;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+   }
+   .ARefCard{
+    border: none;
+    text-decoration: none;
+    color: black;
+   }
+   .ARefCard:hover{
+    border: none;
+    text-decoration: none;
+    color: black;
+   }

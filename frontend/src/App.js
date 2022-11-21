@@ -11,7 +11,7 @@ import LoginPage from "./LoginPage/LoginPage.js";
 import HomePage from "./Home/HomePage.js";
 import SignUpPage from "./LoginPage/SignUpPage.js";
 import Menu from "./Menu/Menu";
-import Main from "./Hangman/Main.js";
+import Main from "./hangman/main.js";
 import Server from "./Server.js";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       {/* <Route exact path="/" element={<LoginPage />} /> */}
       <Route exact path="/Menu" element={<Menu />} />
       <Route exact path="/LoginPage" element={<LoginPage Users={data} />} />
-      <Route exact path="/" element={<HomePage />} />
+      <Route exact path="/" element={<LoginPage Users={data} />} />
       <Route exact path="/SignUpPage" element={<SignUpPage />} />
 
       <Route exact path="/Hangman" element={<Main />} />
