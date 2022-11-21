@@ -59,12 +59,17 @@ const Menu = ({ username }) => {
   return (
     <div className="games">
       <CardGroup className="CardGroup">
-        <Card onClick={() => { navigate("/hangman") }}>
+        <Card
+          onClick={() => {
+            navigate("/hangman");
+          }}
+        >
           {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
           <Card.Body>
             <Card.Title>Hangman</Card.Title>
             <Card.Text>
-              Put your skills to the test and try to guess the hidden word in 8 guesses or less
+              Put your skills to the test and try to guess the hidden word in 8
+              guesses or less
             </Card.Text>
           </Card.Body>
           <Card.Footer>
@@ -72,28 +77,41 @@ const Menu = ({ username }) => {
           </Card.Footer>
         </Card>
         {/* <a href={"/piggy_game/piggy.html"}className="hover:text-slate-400 group relative no-underline text-slate-50"/> */}
-          <Card className = "HtmlCard" onClick={() => { ; console.log("worked") }}>
-        <a href="/piggy_game/piggy.html" className="ARefCard">
+        <Card
+          className="HtmlCard"
+          onClick={() => {
+            console.log("worked");
+          }}
+        >
+          <a href="/piggy_game/piggy.html" className="ARefCard">
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body>
               <Card.Title>Piggies!</Card.Title>
               <Card.Text>
-                Do you think you are lucky? Are you willing to risk it all? Piggies is a game where you roll a dice and so long as it isn't a 1 you get the points. How long are you willing to risk it all?
+                Do you think you are lucky? Are you willing to risk it all?
+                Piggies is a game where you roll a dice and so long as it isn't
+                a 1 you get the points. How long are you willing to risk it all?
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Game created by: Dalton Orvias</small>
+              <small className="text-muted">
+                Game created by: Dalton Orvis
+              </small>
             </Card.Footer>
-        </a>
-          </Card>
-        <Card onClick={() => { navigate("/piggy_game/piggy.html") }}>
+          </a>
+        </Card>
+        <Card
+          onClick={() => {
+            navigate("/piggy_game/piggy.html");
+          }}
+        >
           {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
           <Card.Body>
             <Card.Title>Card title</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in
-              to additional content. This card has even longer content than the
-              first to show that equal height action.
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This card has even longer content
+              than the first to show that equal height action.
             </Card.Text>
           </Card.Body>
           <Card.Footer>
@@ -101,7 +119,7 @@ const Menu = ({ username }) => {
           </Card.Footer>
         </Card>
       </CardGroup>
-    </div >
+    </div>
     //   <nav>
     //     <ul>
     //       <div className="left-menu-wrapper">
