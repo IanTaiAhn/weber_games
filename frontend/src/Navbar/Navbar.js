@@ -34,11 +34,7 @@ const Navbar = () => {
             {/* </a> */}
           </a>
         </div>
-        <div
-          // I won't need this id anymore.
-          id="menuItems"
-          className="hidden space-x-6 text-white text-lg md:flex"
-        >
+        <div className="hidden space-x-6 text-white text-lg md:flex">
           {/* <NavbarItem title="Home" href="/" /> */}
           <NavbarItem title="Menu" href="/Menu" />
           <NavbarItem title="Server" href="/Server" />
@@ -52,7 +48,6 @@ const Navbar = () => {
               LogOut{" "}
               <span className="bg-yellow-300 absolute left-0 -bottom-1 w-0 h-1 transition-all group-hover:w-full"></span>
             </button>
-            // <NavbarItem title="LogOut" onclick={logOut} />
           )}
 
           {/* <NavbarItem title="HangmanReact" href="/Hangman" />
