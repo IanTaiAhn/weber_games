@@ -24,4 +24,7 @@
 
 # flask stuff
 /flask_server/venv/
+<<<<<<< HEAD
 flask_server/venv/pyvenv.cfg
+=======
+>>>>>>> main
