@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="hidden space-x-6 text-white text-lg md:flex">
           {/* <NavbarItem title="Home" href="/" /> */}
           <NavbarItem title="Menu" href="/Menu" />
-          <NavbarItem title="Server" href="/Server" />
+          <NavbarItem title="Leaderboard" href="/Server" />
           {localStorage.length === 0 ? (
             <NavbarItem title="Login" href="/LoginPage" />
           ) : (
@@ -62,12 +62,13 @@ const Navbar = () => {
             <div className="flex flex-col pt-4 space-y-10 text-2xl text-white">
               <NavbarItem title="Home" href="/" />
               <NavbarItem title="Menu" href="/Menu" />
-              <NavbarItem title="Server" href="/Server" />
+              <NavbarItem title="Leaderboard" href="/Server" />
               <NavbarItem title="HangmanReact" href="/Hangman" />
               <NavbarItem title="Piggies!" href="/piggy_game/piggy.html" />
             </div>
           </div>
         </div>
+        {/* Responsive menu end... */}
       </div>
     </nav>
     // </section>

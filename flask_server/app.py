@@ -74,7 +74,9 @@ def get_hangman():
     selectedUsers = Hangman.query.get(3)
     singleResult = tablesDb.hangman_schema.jsonify(selectedUsers)
 
-    all_users = Hangman.query.all()
+    # all_users = Hangman.query.all()
+    all_users = Hangman.query.order_by(Hangman.Tries).all()
+    
     allResults = tablesDb.hangman_schema.dump(all_users, many=True)
     return allResults
 
@@ -92,10 +94,10 @@ def create_hangman_stat():
 
     return tablesDb.hangman_schema.jsonify(add_hangman_stat)
 
-@app.route('/hangman_wins', methods=['GET'])
+@app.route("/hangman_wins", methods=['GET'])
 def get_hangman_wins():
     # I can't beleive that worked lol.
-    selectedUsers = Hangman.query.filter_by(UserDisplayName="jellobed").one()
+    selectedUsers = Hangman.query.filter_by(UserDisplayName='jellobed').one()
 
     singleResult = tablesDb.hangman_schema.jsonify(selectedUsers)
 

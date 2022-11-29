@@ -110,7 +110,6 @@ const Hangman = ({ selectedWord }) => {
         {win ? (
           <button
             onClick={recordScore}
-            // Maybe then we hide the record button, and then
             className={`p-4 border-2 self-center border-indigo-400 max-w-sm transition-all hover:bg-slate-400 hover:scale-x-110 ${hover}`}
           >
             {saveScore}

@@ -1,34 +1,47 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function Server() {
   const [data, setData] = useState([{}]); // empty array of dictionaries
   const [games, setGames] = useState([{}]);
+  const [leaderboard, setleaderboard] = useState([{}]);
 
-  // Gets all users from User table from database
+  // // Gets all users from User table from database
+  // useEffect(() => {
+  //   // configure fetch data
+  //   fetch("http://127.0.0.1:5000/users")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setData(data);
+  //       // console.log(data[0].UserName);
+  //       // console.log(data[0]);
+  //       // console.log(data[2]);
+  //       // console.log(data.UserDisplayName);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // }, []); // the empty array at the end ensures it runs only once
+
+  // // Gets all Games from Game table from database
+  // useEffect(() => {
+  //   // configure fetch data
+  //   fetch("http://127.0.0.1:5000/games")
+  //     .then((response) => response.json())
+  //     .then((games) => {
+  //       setGames(games);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // }, []); // the empty array at the end ensures it runs only once
+
   useEffect(() => {
     // configure fetch data
-    fetch("http://127.0.0.1:5000/users")
+    fetch("http://127.0.0.1:5000/hangman")
       .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        // console.log(data[0].UserName);
-        // console.log(data[0]);
-        // console.log(data[2]);
-        // console.log(data.UserDisplayName);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []); // the empty array at the end ensures it runs only once
-
-  // Gets all Games from Game table from database
-  useEffect(() => {
-    // configure fetch data
-    fetch("http://127.0.0.1:5000/games")
-      .then((response) => response.json())
-      .then((games) => {
-        setGames(games);
+      .then((leaderboard) => {
+        setleaderboard(leaderboard);
+        console.log(leaderboard);
       })
       .catch((err) => {
         console.log(err.message);
@@ -54,15 +67,7 @@ function Server() {
   return (
     <div className="container mx-auto">
       {/* Get Users */}
-      <div className="space-x-6">
-        {/* <Link className="text-3xl text-black" to="/HomePage">
-          Home
-        </Link>
-        <Link className="text-3xl text-black" to="/Menu">
-          Menu
-        </Link> */}
-      </div>
-      {typeof data === "undefined" ? (
+      {/* {typeof data === "undefined" ? (
         <p>loading......</p>
       ) : (
         data.map((el, index) => (
@@ -73,10 +78,10 @@ function Server() {
             {el.UserDisplayName}
           </h1>
         ))
-      )}
+      )} */}
       {/* Get Users end */}
       {/* Get Games start */}
-      {typeof data === "undefined" ? (
+      {/* {typeof data === "undefined" ? (
         <p>loading......</p>
       ) : (
         games.map((el, index) => (
@@ -85,8 +90,21 @@ function Server() {
             id: {el.Gameid} | GameName: {el.GameName} | Genre: {el.Genre}
           </h1>
         ))
-      )}
+      )} */}
       {/* Get Games end */}
+      {/* Get leaderboard start */}
+      {typeof data === "undefined" ? (
+        <p>loading......</p>
+      ) : (
+        leaderboard.map((el, index) => (
+          <h1 key={index}>
+            {" "}
+            Player: {el.UserDisplayName} | GuessedWord: {el.GuessedWord} | # of
+            Tries: {el.Tries}
+          </h1>
+        ))
+      )}
+      {/* Get leaderboard end */}
     </div>
   );
 }
