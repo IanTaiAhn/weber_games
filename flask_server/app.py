@@ -95,7 +95,7 @@ def create_hangman_stat():
 @app.route('/hangman_wins', methods=['GET'])
 def get_hangman_wins():
     # I can't beleive that worked lol.
-    selectedUsers = Hangman.query.filter_by(UserDisplayName="teddyboi").one()
+    selectedUsers = Hangman.query.filter_by(UserDisplayName="jellobed").one()
 
     singleResult = tablesDb.hangman_schema.jsonify(selectedUsers)
 
