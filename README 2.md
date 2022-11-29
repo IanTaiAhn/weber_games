@@ -14,9 +14,6 @@ First, create a virtual environment and activate it
 
 (activate it)  venv/Scripts/activate
 
-<<<<<<< HEAD
-(install flask)  pip install Flask
-=======
 
 (For Mac)
 If you have more than one version of python installed on your computer use python3 instead of python.
@@ -25,36 +22,24 @@ If you have more than one version of python installed on your computer use pytho
 3. Navigate to the flask_server directory in the terminal
 4. python -m venv venv
 5. source venv/bin/activate
->>>>>>> main
 
 # Install the requirements.txt
 Install the requirements.txt file using the following command:
 
 pip install -r requirements.txt (windows)
-<<<<<<< HEAD
-pip3 install -r requirements (mac)
-
-# All set up and ready to run
-(run it) python server.py   (windows)
-=======
 
 pip install -r requirements.txt (mac)
 
 # All set up and ready to run
 (run it) python server.py   (windows)
 
->>>>>>> main
 (run it) python3 server.py  (mac)
 
 # Note about server.py
 If you cloned the repo then the code for the test api calls in "server.py" should be there.
 Run the server, and put in "/api/members/" to test if the api calls are working.
 
-<<<<<<< HEAD
-# Notice in the pyvenv.cfg
-=======
 # Notice in the pyvenv.cfg (deprecated, just create your own venv when cloning any branch)
->>>>>>> main
 We will need to update the "home" variable that paths to where we have python installed.
 I dont know if only changing that variable will work..
 I had to delete the existing venv, and run my own commands to create the venv.

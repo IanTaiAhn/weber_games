@@ -15,7 +15,13 @@ import Main from "./Hangman/main";
 import Server from "./Server.js";
 
 function App() {
+<<<<<<< HEAD
   const [data, setData] = useState([{}]); // empty array of dictionaries
+=======
+  const [data, setData] = useState([{}]) // empty array of dictionaries
+
+  
+>>>>>>> main
   useEffect(() => {
     // configure fetch data
     fetch("http://127.0.0.1:5000/users")
