@@ -27,7 +27,8 @@ const Navbar = () => {
           {/* <!-- <img src="img/logo.svg" alt="" /> Perhaps I'll find a logo, or make one -->  */}
           <a
             href="/"
-            className="font-bold text-3xl text-slate-50 p-2 no-underline cursor-pointer hover:text-slate-300"
+            className="font-bold text-3xl text-slate-50 p-2 no-underline cursor-pointer hover:text-cyan-400"
+            // className="font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-b from-cyan-200 to-cyan-600 hover:text-cyan-600 no-underline"
           >
             {/* <a href="" className="hover:text-slate-400 group relative"> */}
             Weber Games
@@ -46,7 +47,7 @@ const Navbar = () => {
               onClick={logOut}
             >
               LogOut{" "}
-              <span className="bg-yellow-300 absolute left-0 -bottom-1 w-0 h-1 transition-all group-hover:w-full"></span>
+              <span className="bg-cyan-400 absolute left-0 -bottom-1 w-0 h-1 transition-all group-hover:w-full"></span>
             </button>
           )}
 

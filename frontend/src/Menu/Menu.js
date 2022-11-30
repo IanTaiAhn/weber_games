@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Card, CardGroup, Button } from "react-bootstrap";
 import "./Menu.css";
@@ -8,53 +7,48 @@ import "./Menu.css";
 // not display the user's name. It will also display a login button or register link.
 // If the user is logged in, the menu will display the user's name and a logout button.
 const Menu = ({ username }) => {
-  const mainCategories = ["arcade", "shooter", "rpg", "fighting"];
   let navigate = useNavigate();
-  // flag for whether the categories are expanded or not
-  const [categoriesExpanded, setCategoriesExpanded] = useState(false);
+  // const mainCategories = ["arcade", "shooter", "rpg", "fighting"];
+  // const [categoriesExpanded, setCategoriesExpanded] = useState(false);
+  // const [categoriesContained, setCategoriesContained] = useState(false);
+  // const categories = [
+  //   "All",
+  //   "MMO",
+  //   "action",
+  //   "adventure",
+  //   "simulation",
+  //   "puzzle",
+  //   "indie",
+  //   "platformer",
+  //   "board",
+  //   "casual",
+  //   "racing",
+  //   "sports",
+  //   "racing",
+  //   "strategy",
+  //   "action",
+  // ];
 
-  // Flag for whether all the categories will be contained or ont
-  const [categoriesContained, setCategoriesContained] = useState(false);
-
-  const categories = [
-    "All",
-    "MMO",
-    "action",
-    "adventure",
-    "simulation",
-    "puzzle",
-    "indie",
-    "platformer",
-    "board",
-    "casual",
-    "racing",
-    "sports",
-    "racing",
-    "strategy",
-    "action",
-  ];
-
-  // Handles the click event for the categories
-  const categoryClickHandler = (e) => {
-    console.log(e.target.innerHTML);
-  };
+  // const categoryClickHandler = (e) => {
+  //   console.log(e.target.innerHTML);
+  // };
 
   // Set the categoriesContained flag if on smaller screens when the component loads
   // and when the window is resized
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 550) {
-        setCategoriesContained(true);
-      } else {
-        setCategoriesContained(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth < 550) {
+  //       setCategoriesContained(true);
+  //     } else {
+  //       setCategoriesContained(false);
+  //     }
+  //   };
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   return (
     <div className="games">

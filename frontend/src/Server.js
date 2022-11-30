@@ -93,18 +93,48 @@ function Server() {
       )} */}
       {/* Get Games end */}
       {/* Get leaderboard start */}
-      {typeof data === "undefined" ? (
+      <div className="flex flex-row justify-center p-2 mt-8">
+        {/* <div className="flex flex-col justify-center space-y-2 p-2"> */}
+        <table className="text-5xl table-auto border-separate border-spacing-4 border-2 border-cyan-500">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>GuessedWord</th>
+              <th>Tries</th>
+            </tr>
+          </thead>
+          <tbody>
+            {typeof data === "undefined" ? (
+              <p>loading......</p>
+            ) : (
+              leaderboard.map((el, index) => (
+                <tr className="p-2">
+                  {" "}
+                  <td>{index + 1}</td>
+                  <td>{el.UserDisplayName}</td>
+                  <td>{el.GuessedWord}</td>
+                  <td>{el.Tries}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+
+        {/* {typeof data === "undefined" ? (
         <p>loading......</p>
       ) : (
         leaderboard.map((el, index) => (
-          <h1 key={index}>
+          <h1 className="p-2">
             {" "}
             Player: {el.UserDisplayName} | GuessedWord: {el.GuessedWord} | # of
             Tries: {el.Tries}
           </h1>
         ))
-      )}
-      {/* Get leaderboard end */}
+      )} */}
+        {/* </div> */}
+        {/* Get leaderboard end */}
+      </div>
     </div>
   );
 }

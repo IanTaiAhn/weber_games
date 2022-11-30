@@ -10,10 +10,10 @@ const HomePage = () => {
       <h1 className="text-5xl">Welcome to Weber Games!</h1>
       {localStorage.length === 0 ? (
         <p className="text-2xl">
-          <span className="bg-blue-700 rounded p-1">
+          <span className="bg-slate-500 rounded p-1">
             <a
               href="LoginPage"
-              className="text-yellow-300 cursor-pointer no-underline hover:text-blue-200"
+              className="text-cyan-400 cursor-pointer no-underline hover:text-blue-200"
             >
               Log in
             </a>
@@ -23,20 +23,25 @@ const HomePage = () => {
       ) : (
         <div>
           {/* <p className="text-2xl"></p> */}
-          <p className="text-2xl">
-            Hello {localStorage.getItem("UserDisplayName")}! Click for the{" "}
-            <span className="bg-blue-700 rounded p-1">
+          <p className="text-3xl">
+            Hello{" "}
+            <span className="font-bold">
+              {localStorage.getItem("UserDisplayName")}!
+            </span>{" "}
+            Click for the{" "}
+            <span className="bg-slate-500 rounded p-1 ">
               <a
                 href="Menu"
-                className="text-yellow-300 cursor-pointer no-underline hover:text-blue-200"
+                className="text-cyan-400 cursor-pointer no-underline hover:text-white "
               >
-                fun
+                fun!
               </a>
             </span>
           </p>
         </div>
       )}
-      {localStorage.length === 0 ? (
+      {/* Logout buttton on homepage.. idk if i like that. */}
+      {/* {localStorage.length === 0 ? (
         <div></div>
       ) : (
         <button
@@ -45,7 +50,7 @@ const HomePage = () => {
         >
           LogOut
         </button>
-      )}
+      )} */}
     </div>
   );
 };

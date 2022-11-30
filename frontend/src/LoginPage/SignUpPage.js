@@ -102,7 +102,7 @@ const LoginPage = () => {
         </div>
       </Form>
       <button
-        className="backToLoginPageBtn"
+        className="backToLoginPageBtn hover:text-slate-400"
         onClick={() => {
           navigate("/LoginPage");
         }}
