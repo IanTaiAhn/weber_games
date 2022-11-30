@@ -1,6 +1,14 @@
-# CS3750_project
-
 # weber_games
+Technologies this project uses.
+- Frontend
+- Node
+- React
+- Tailwind
+- Bootstrap
+Backend
+- Flask
+- SQLAlchemy
+- Flask_SQLAlchemy
 
 # Frontend
 
