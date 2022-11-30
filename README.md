@@ -1,6 +1,6 @@
 # weber_games
 Technologies this project uses.
-- Frontend
+Frontend
 - Node
 - React
 - Tailwind
@@ -10,9 +10,9 @@ Backend
 - SQLAlchemy
 - Flask_SQLAlchemy
 
-# Frontend
+# Getting Started
 
-cd into weber_games and run:
+cd into CS3750_project and run:
 npm install
 (this will install all the requirements for for the react project)
 
