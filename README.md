@@ -1,11 +1,10 @@
 # weber_games
-Technologies this project uses.
-Frontend
+# Frontend
 - Node
 - React
 - Tailwind
 - Bootstrap
-Backend
+# Backend
 - Flask
 - SQLAlchemy
 - Flask_SQLAlchemy
