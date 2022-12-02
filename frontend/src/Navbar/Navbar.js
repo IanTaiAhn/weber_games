@@ -21,13 +21,13 @@ const Navbar = () => {
   };
   return (
     // <section className="bg-gradient-to-b from-slate-500 to-slate-400">
-    <nav className="relative p-2 bg-gradient-to-b from-slate-500 to-slate-400">
+    <nav className="absolute top-0 w-full p-2 bg-gradient-to-b from-slate-600 to-slate-400 z-10">
       <div className="flex items-center justify-between">
         <div className="pt-2">
           {/* <!-- <img src="img/logo.svg" alt="" /> Perhaps I'll find a logo, or make one -->  */}
           <a
             href="/"
-            className="font-bold text-3xl text-slate-50 p-2 no-underline cursor-pointer hover:text-cyan-400"
+            className="font-bold font-mono text-3xl text-slate-50 p-2 no-underline cursor-pointer transition delay-75 hover:text-cyan-400"
             // className="font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-b from-cyan-200 to-cyan-600 hover:text-cyan-600 no-underline"
           >
             {/* <a href="" className="hover:text-slate-400 group relative"> */}
@@ -43,7 +43,7 @@ const Navbar = () => {
             <NavbarItem title="Login" href="/LoginPage" />
           ) : (
             <button
-              className="hover:text-slate-400 group relative no-underline text-slate-50"
+              className="font-mono hover:text-slate-400 group relative no-underline text-slate-50"
               onClick={logOut}
             >
               LogOut{" "}

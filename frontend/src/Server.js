@@ -65,7 +65,7 @@ function Server() {
   //   );
   // }, []);
   return (
-    <div className="container mx-auto">
+    <div className="container">
       {/* Get Users */}
       {/* {typeof data === "undefined" ? (
         <p>loading......</p>
@@ -93,11 +93,13 @@ function Server() {
       )} */}
       {/* Get Games end */}
       {/* Get leaderboard start */}
-      <div className="flex flex-row justify-center p-2 mt-8">
+
+      <div className="flex flex-col justify-center p-20 mt-20">
         {/* <div className="flex flex-col justify-center space-y-2 p-2"> */}
+        <h1 className="text-6xl font-mono font-bold">Hangman Leaderboard</h1>
         <table className="text-5xl table-auto border-separate border-spacing-4 border-2 border-cyan-500">
           <thead>
-            <tr>
+            <tr className="font-mono">
               <th>Rank</th>
               <th>Player</th>
               <th>GuessedWord</th>
@@ -120,19 +122,6 @@ function Server() {
             )}
           </tbody>
         </table>
-
-        {/* {typeof data === "undefined" ? (
-        <p>loading......</p>
-      ) : (
-        leaderboard.map((el, index) => (
-          <h1 className="p-2">
-            {" "}
-            Player: {el.UserDisplayName} | GuessedWord: {el.GuessedWord} | # of
-            Tries: {el.Tries}
-          </h1>
-        ))
-      )} */}
-        {/* </div> */}
         {/* Get leaderboard end */}
       </div>
     </div>
