@@ -84,7 +84,7 @@ const Hangman = ({ selectedWord }) => {
         return response.json();
       }
     );
-    setTimeout(window.location.reload.bind(window.location), 3000);
+    setTimeout(window.location.reload.bind(window.location), 4000);
   }
   function refreshPage() {
     window.location.reload();

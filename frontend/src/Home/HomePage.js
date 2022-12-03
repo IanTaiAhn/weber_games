@@ -32,7 +32,7 @@ const HomePage = () => {
             ) : (
               <div className="animate-fadeInSlow">
                 {/* <p className="text-2xl"></p> */}
-                <p className="text-3xl font-mono">
+                <p className="text-3xl font-mono max-w-md text-center">
                   Hello{" "}
                   <span className="font-bold">
                     {localStorage.getItem("UserDisplayName")}!
