@@ -16,6 +16,8 @@ const LoginPage = ({ Users }) => {
     checkUser((userField, passField) => {
       userField = document.getElementById("formBasicUserName").value;
       passField = document.getElementById("formBasicPassword").value;
+      console.log(Users[0].UserName);
+      console.log(Users[0].UserPass);
       Users.map((el) => {
         if (el.UserName === userField && el.UserPass === passField) {
           // Get the correcct id? so that we can grab the correct gamer tag.

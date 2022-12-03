@@ -4,7 +4,7 @@ import "./index.css";
 import Server from "./Server";
 import reportWebVitals from "./reportWebVitals";
 // import Main from "/Hangman/main.js";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import Navbar from "./Navbar/Navbar";
@@ -13,11 +13,11 @@ import Footer from "./Footer/Footer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/weber_games">
+    <HashRouter>
       <Navbar />
       <App />
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
 
