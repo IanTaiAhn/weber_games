@@ -1,6 +1,5 @@
 # Live Website: https://iantaiahn.github.io/weber_games
 
-# weber_games
 # Frontend
 - Node
 - React
