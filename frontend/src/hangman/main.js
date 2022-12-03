@@ -18,7 +18,7 @@ let selectedWord = randomWords[Math.floor(Math.random() * randomWords.length)];
 function Main() {
   console.log(selectedWord);
   return (
-    <div>
+    <div className="h-screen">
       {/* <Header title="HangmanReact" /> */}
       <Hangman selectedWord={selectedWord} />
     </div>

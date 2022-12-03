@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <BrowserRouter>
       <Navbar />
       <App />
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );

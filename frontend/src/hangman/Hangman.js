@@ -84,13 +84,13 @@ const Hangman = ({ selectedWord }) => {
         return response.json();
       }
     );
-    setTimeout(window.location.reload.bind(window.location), 3000);
+    setTimeout(window.location.reload.bind(window.location), 4000);
   }
   function refreshPage() {
     window.location.reload();
   }
   return (
-    <div className="container mx-auto border-2 border-indigo-600 mt-16">
+    <div className="container mx-auto border-2 border-indigo-600 mt-20">
       <div className="flex flex-column p-10">
         <h2>Guess the word in under 8 tries!</h2>
         <div className="flex flex-row gap-x-4 text-3xl self-center p-10">
