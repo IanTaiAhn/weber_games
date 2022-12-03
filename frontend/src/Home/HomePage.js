@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const HomePage = () => {
+  let navigate = useNavigate();
+
   const logOut = () => {
     localStorage.clear();
     window.location.reload();
@@ -20,7 +24,9 @@ const HomePage = () => {
                 <p className="text-2xl ">
                   <span className="bg-slate-500 rounded p-1">
                     <a
-                      href="LoginPage"
+                      onClick={() => {
+                        navigate("/LoginPage");
+                      }}
                       className="text-cyan-400 cursor-pointer no-underline hover:text-blue-200"
                     >
                       Log in
@@ -40,7 +46,9 @@ const HomePage = () => {
                   Click for the{" "}
                   <span className="bg-slate-500 rounded p-1 ">
                     <a
-                      href="Menu"
+                      onClick={() => {
+                        navigate("/Menu");
+                      }}
                       className="text-cyan-400 cursor-pointer no-underline hover:text-white "
                     >
                       fun!

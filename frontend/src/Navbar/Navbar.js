@@ -16,8 +16,6 @@ const Navbar = () => {
     localStorage.clear();
     navigate("/");
     window.location.reload();
-
-    console.log("hello");
   };
   return (
     // <section className="bg-gradient-to-b from-slate-500 to-slate-400">
@@ -26,13 +24,12 @@ const Navbar = () => {
         <div className="pt-2">
           {/* <!-- <img src="img/logo.svg" alt="" /> Perhaps I'll find a logo, or make one -->  */}
           <a
-            href="/"
+            onClick={() => {
+              navigate("/");
+            }}
             className="font-bold font-mono text-3xl text-slate-50 p-2 no-underline cursor-pointer transition delay-75 hover:text-cyan-400"
-            // className="font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-b from-cyan-200 to-cyan-600 hover:text-cyan-600 no-underline"
           >
-            {/* <a href="" className="hover:text-slate-400 group relative"> */}
             Weber Games
-            {/* </a> */}
           </a>
         </div>
         <div className="hidden space-x-6 text-white text-lg md:flex">
