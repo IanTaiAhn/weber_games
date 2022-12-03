@@ -21,13 +21,16 @@ Hangman = tables.user.Hangman
 tablesDb = tables.user
 
 # API call to create a User
+
+
 @app.route('/add_user', methods=['POST'])
 def create_user():
     UserName = request.json['UserName']
     UserPass = request.json['UserPass']
     UserDisplayName = request.json['UserDisplayName']
 
-    add_user = User(UserName=UserName, UserPass=UserPass, UserDisplayName=UserDisplayName)
+    add_user = User(UserName=UserName, UserPass=UserPass,
+                    UserDisplayName=UserDisplayName)
     db.session.add(add_user)
     db.session.commit()
 
@@ -35,6 +38,8 @@ def create_user():
 
 # var = 3
 # Get a User
+
+
 @app.route('/users', methods=['GET'])
 def get_users():
     selectedUsers = User.query.get(3)
@@ -45,6 +50,8 @@ def get_users():
     return allResults
 
 # Get a Game
+
+
 @app.route('/games', methods=['GET'])
 def get_games():
     selectedUsers = Game.query.get(3)
@@ -53,7 +60,7 @@ def get_games():
     all_users = Game.query.all()
     allResults = tablesDb.game_schema.dump(all_users, many=True)
     return allResults
-    
+
 
 # API call to create a Game
 @app.route('/add_game', methods=['POST'])
@@ -76,11 +83,13 @@ def get_hangman():
 
     # all_users = Hangman.query.all()
     all_users = Hangman.query.order_by(Hangman.Tries).all()
-    
+
     allResults = tablesDb.hangman_schema.dump(all_users, many=True)
     return allResults
 
 # Post Hangman stats
+
+
 @app.route('/add_hangman_stat', methods=['POST'])
 def create_hangman_stat():
     UserDisplayName = request.json['UserDisplayName']
@@ -88,11 +97,13 @@ def create_hangman_stat():
     Tries = request.json['Tries']
     TotalWins = request.json['TotalWins']
 
-    add_hangman_stat = Hangman(UserDisplayName=UserDisplayName, GuessedWord=GuessedWord, Tries=Tries, TotalWins=TotalWins)
+    add_hangman_stat = Hangman(UserDisplayName=UserDisplayName,
+                               GuessedWord=GuessedWord, Tries=Tries, TotalWins=TotalWins)
     db.session.add(add_hangman_stat)
     db.session.commit()
 
     return tablesDb.hangman_schema.jsonify(add_hangman_stat)
+
 
 @app.route("/hangman_wins", methods=['GET'])
 def get_hangman_wins():
@@ -106,9 +117,12 @@ def get_hangman_wins():
     return singleResult
 
 # Test API Call
+
+
 @app.route('/test')
 def test():
     return 'Testing server!'
+
 
 # Run Server
 if __name__ == '__main__':

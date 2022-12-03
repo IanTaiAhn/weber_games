@@ -11,7 +11,7 @@ import LoginPage from "./LoginPage/LoginPage.js";
 import HomePage from "./Home/HomePage.js";
 import SignUpPage from "./LoginPage/SignUpPage.js";
 import Menu from "./Menu/Menu";
-import Main from "./Hangman/main";
+import Main from "./hangman/main";
 import Server from "./Server.js";
 
 function App() {
