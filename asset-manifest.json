@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/weber_games/static/css/main.fda2fcad.css",
-    "main.js": "/weber_games/static/js/main.bd087438.js",
+    "main.css": "/weber_games/static/css/main.0e795b20.css",
+    "main.js": "/weber_games/static/js/main.93730b6c.js",
     "static/js/787.605b1cd0.chunk.js": "/weber_games/static/js/787.605b1cd0.chunk.js",
     "index.html": "/weber_games/index.html",
-    "main.fda2fcad.css.map": "/weber_games/static/css/main.fda2fcad.css.map",
-    "main.bd087438.js.map": "/weber_games/static/js/main.bd087438.js.map",
+    "main.0e795b20.css.map": "/weber_games/static/css/main.0e795b20.css.map",
+    "main.93730b6c.js.map": "/weber_games/static/js/main.93730b6c.js.map",
     "787.605b1cd0.chunk.js.map": "/weber_games/static/js/787.605b1cd0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fda2fcad.css",
-    "static/js/main.bd087438.js"
+    "static/css/main.0e795b20.css",
+    "static/js/main.93730b6c.js"
   ]
 }
