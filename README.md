@@ -1,6 +1,7 @@
 # Live Website: https://iantaiahn.github.io/weber_games
 *Note
 
+This website wasn't optimized for mobile devices.
 The live website's backend isn't functional unless the flask server is turned on. This app relied on having the python flask app ran on the local machine, and the server would run on the localhost:5000.
 
 # Frontend
